@@ -8,12 +8,12 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT;
 
-const toJSON = bodyParser.json();
+app.use(bodyParser.json());
 
-app.post("/", toJSON, async (req: Request, res: Response) => {
+app.post("/", async (req: Request, res: Response) => {
   let result: null | number = null;
 
-  const { x, y, operation_type } = req.body as RequestBodyType;
+  const { x, y, operation_type } = await req.body;
 
   if (operation_type === ArithmeticOperation.Addition) {
     result = x + y;
@@ -27,6 +27,8 @@ app.post("/", toJSON, async (req: Request, res: Response) => {
     return res
       .status(200)
       .json({ slackUsername: "dejiborewa", operation_type: operation_type, result: result });
+  } else {
+    return res.status(404).json({ error: "Something went wrong" });
   }
 });
 
