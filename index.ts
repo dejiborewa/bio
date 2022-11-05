@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import dotenv from "dotenv";
-import { ArithmeticOperation, person } from "./const/const";
+import { ArithmeticOperation } from "./const/const";
 import bodyParser from "body-parser";
 import { RequestBodyType } from "./types/types";
 
