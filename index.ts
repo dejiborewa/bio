@@ -24,9 +24,9 @@ app.post("/", toJSON, async (req: Request, res: Response) => {
   }
 
   if (result) {
-    return res.status(200).json({ slackUsername: "dejiborewa", operation_type, result });
-  } else {
-    return res.status(500).json({ error: "Something went wrong" });
+    return res
+      .status(200)
+      .json({ slackUsername: "dejiborewa", operation_type: operation_type, result: result });
   }
 });
 
