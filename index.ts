@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.post("/", async (req: Request, res: Response) => {
   let result: null | number = null;
 
-  const { x, y, operation_type } = await req.body;
+  const { x, y, operation_type } = (await req.body) as RequestBodyType;
 
   if (operation_type === ArithmeticOperation.Addition) {
     result = x + y;
@@ -28,7 +28,7 @@ app.post("/", async (req: Request, res: Response) => {
       .status(200)
       .json({ slackUsername: "dejiborewa", operation_type: operation_type, result: result });
   } else {
-    return res.status(404).json({ error: "Something went wrong" });
+    return res.json({ error: "Something went wrong" });
   }
 });
 
