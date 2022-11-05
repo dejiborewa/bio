@@ -1,7 +1,4 @@
 # bio
-This is a dump repo
+# Finally taking this backend thing serious
 
-
-Finally taking this backend thing serious
-
-I would be doing most of my individual HNGi9 tasks on here, bye for now. 
+This is a dump repo; I would be doing most of my individual HNGi9 tasks on here, bye for now. 
