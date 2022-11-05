@@ -10,11 +10,7 @@ const port = process.env.PORT;
 
 const toJSON = bodyParser.json();
 
-app.get("/", (req: Request, res: Response) => {
-  return res.status(200).json(person);
-});
-
-app.post("/ariths", toJSON, async (req: Request, res: Response) => {
+app.post("/", toJSON, async (req: Request, res: Response) => {
   let result: null | number = null;
 
   const { x, y, operation_type } = req.body as RequestBodyType;
